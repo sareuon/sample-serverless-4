@@ -1,0 +1,31 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: mangomap
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: sample-serverless4
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: sample-serverless-4
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+plugins:
+  - serverless-offline
+
+functions:
+  tile:
+    handler: src/functions/handler.tile
+    timeout: 30
+    events:
+      - httpApi:
+          path: /tile/{z}/{x}/{y}
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
