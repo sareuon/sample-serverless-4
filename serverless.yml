@@ -19,13 +19,13 @@ functions:
       - httpApi:
           path: /tile/{z}/{x}/{y}
           method: get
-          cors:
-            origin: '*'
-            headers:
-              - Content-Type
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: false
+          # cors:
+          #   origin: '*'
+          #   headers:
+          #     - Content-Type
+          #     - X-Amz-Date
+          #     - Authorization
+          #     - X-Api-Key
+          #     - X-Amz-Security-Token
+          #     - X-Amz-User-Agent
+          #   allowCredentials: false
